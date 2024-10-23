@@ -1,4 +1,4 @@
-from app.cadastro import new_user, new_auth, create_new_user, BD
+from app.cadastro import new_user, new_auth, create_new_user, bd
 
 
 def test_new_user_valid():
@@ -37,11 +37,11 @@ def test_create_new_user():
         "password": "VDR!!!validpassword123",
     }
     create_new_user(user_data)
-    user = BD["users"][0]
-    auth = BD["auth"][0]
+    user = bd["users"][0]
+    auth = bd["auth"][0]
 
-    assert len(BD["users"]) == 1
-    assert len(BD["auth"]) == 1
+    assert len(bd["users"]) == 1
+    assert len(bd["auth"]) == 1
 
     for key, value in user_data.items():
         if key == "password":

@@ -1,11 +1,5 @@
-from .models import Authentication, User
+from .models import Authentication, User, bd
 from .validacoes import validate_user_data, validar_senha
-
-
-BD: dict[str, list[Authentication | User]] = {
-    "auth": [],
-    "users": [],
-}
 
 
 def new_user(
@@ -22,7 +16,7 @@ def new_user(
 ) -> User:
     user = User(
         {
-            "id": len(BD["users"]),
+            "id": len(bd["users"]),
             "username": username,
             "email": email,
             "nome": nome,
@@ -55,5 +49,5 @@ def create_new_user(user_data: dict):
     auth = new_auth(user["id"], user_data.get("password", ""))
 
     # preencho apenas após a criação com sucesso dos dois objetos
-    BD["auth"].append(auth)
-    BD["users"].append(user)
+    bd["auth"].append(auth)
+    bd["users"].append(user)
