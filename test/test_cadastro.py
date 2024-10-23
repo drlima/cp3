@@ -1,4 +1,4 @@
-from app.cadastro import new_user, new_auth, create_new_user, bd
+from app.menu.cadastro import new_user, new_auth, create_new_user, bd
 
 
 def test_new_user_valid():
