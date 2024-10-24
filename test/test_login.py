@@ -2,11 +2,11 @@ import pytest
 
 from app.validacoes.login import (
     is_in_chars,
-    validar_user_name,
+    username_is_valid,
     validar_dominio,
-    validar_email,
-    validar_cpf,
-    validar_rg,
+    email_is_valid,
+    cpf_is_valid,
+    rg_is_valid,
     validar_senha,
 )
 
@@ -39,7 +39,7 @@ def test_is_in_chars(char, expected):
     ],
 )
 def test_validar_user_name(uname, expected):
-    assert validar_user_name(uname) == expected
+    assert username_is_valid(uname) == expected
 
 
 @pytest.mark.parametrize(
@@ -70,7 +70,7 @@ def test_validar_dominio(domain, expected):
     ],
 )
 def test_validar_email(email, expected):
-    assert validar_email(email) == expected
+    assert email_is_valid(email) == expected
 
 
 @pytest.mark.parametrize(
@@ -89,7 +89,7 @@ def test_validar_email(email, expected):
     ],
 )
 def test_validar_cpf(cpf, expected):
-    assert validar_cpf(cpf) == expected
+    assert cpf_is_valid(cpf) == expected
 
 
 @pytest.mark.parametrize(
@@ -107,7 +107,7 @@ def test_validar_cpf(cpf, expected):
     ],
 )
 def test_validar_rg(rg, expected):
-    assert validar_rg(rg) == expected
+    assert rg_is_valid(rg) == expected
 
 
 @pytest.mark.parametrize(

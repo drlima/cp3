@@ -8,7 +8,7 @@ def is_in_chars(c: str) -> bool:
     return c in characters and len(c) == 1
 
 
-def validar_user_name(uname: str) -> bool:
+def username_is_valid(uname: str) -> bool:
     if not len(uname):
         return False
     return all(map(is_in_chars, uname))
@@ -26,17 +26,17 @@ def validar_dominio(domain: str) -> bool:
     return all(map(lambda x: all(map(is_in_chars, x)), parts))
 
 
-def validar_email(email: str) -> bool:
+def email_is_valid(email: str) -> bool:
     if "@" not in email:
         return False
     parts = email.split("@")
     if len(parts) != 2:
         return False
     user, domain = parts
-    return validar_user_name(user) and validar_dominio(domain)
+    return username_is_valid(user) and validar_dominio(domain)
 
 
-def validar_cpf(cpf: str) -> bool:
+def cpf_is_valid(cpf: str) -> bool:
     return any(
         (
             re.fullmatch(r"\d{3}\.\d{3}\.\d{3}-\d{2}", cpf),
@@ -45,7 +45,7 @@ def validar_cpf(cpf: str) -> bool:
     )
 
 
-def validar_rg(rg: str) -> bool:
+def rg_is_valid(rg: str) -> bool:
     return any(
         (
             re.fullmatch(r"\d{2}\.\d{3}\.\d{3}-\d", rg),

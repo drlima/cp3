@@ -1,11 +1,11 @@
 from ..models import User
-from .login import validar_email, validar_cpf, validar_rg
+from .login import email_is_valid, cpf_is_valid, rg_is_valid
 
 
 user_validations = {
-    "email": validar_email,
-    "cpf": validar_cpf,
-    "rg": validar_rg,
+    "email": email_is_valid,
+    "cpf": cpf_is_valid,
+    "rg": rg_is_valid,
 }
 
 
